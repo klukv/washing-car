@@ -1,0 +1,17 @@
+.catalog{
+    padding: 80px 0px;
+    margin-left: 250px;
+    &__grid{
+        display: grid;
+        grid-template-columns: 350px 200px 270px 1fr;
+    }
+    .up__row{
+        background-color: #2284BB;
+    }
+    .catalog__title{
+        padding: 21px 94px;
+    }
+    .price__title{
+        padding: 21px 80px;
+    }
+}

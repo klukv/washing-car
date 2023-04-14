@@ -1,0 +1,47 @@
+.home{
+    padding: 100px 0px 80px 0px;
+    .information{
+        display: flex;
+        margin-bottom: 24px;
+        &__text{
+            flex: 1 1 auto;
+            &-title{
+                font-size: 32px;
+                font-weight: 500;
+                margin-bottom: 40px;
+            }
+            &-info{
+                font-size: 22px;
+                font-weight: 500;
+                line-height: 32px;
+            }
+        }
+        &__image{
+            flex: 0 0 468px;
+            margin-left: 15px;
+            img{
+                border-radius: 25px;
+            }
+        }
+    }
+    .about{
+        &__title{
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+        &__text{
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            line-height: 32px;
+        }
+        &__image{
+            text-align: center;
+            img{
+                display: inline-block;
+                border-radius: 25px;
+            }
+        }
+    }
+}

@@ -1,0 +1,86 @@
+.menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background-color: #242731;
+  border-right: 2px solid #1f2128;
+  &__inner {
+    height: 100%;
+    padding: 30px 50px 30px 24px;
+  }
+  &__logo {
+    padding-bottom: 35px;
+  }
+  &__list {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    &-point {
+      position: relative;
+      margin-bottom: 10px;
+      &:last-child {
+        margin-top: auto;
+        margin-bottom: 80px;
+      }
+    }
+    &-link {
+      display: block;
+      font-weight: 500;
+      color: #808191;
+      transition: all 0.3s ease-in;
+      padding: 7px 82px 7px 36px;
+      border-radius: 6px;
+      &:hover{
+        cursor: pointer;
+        background-color: #292e3d;
+        color: #ffffff;
+      }
+    }
+    .menu-main::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 17;
+      width: 20px;
+      height: 20px;
+      background-image: url(../assets/img/menu/main.svg);
+    }
+    .menu-stocks::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 17;
+      width: 20px;
+      height: 20px;
+      background-image: url(../assets/img/menu/stocks.svg);
+    }
+    .menu-about::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 17;
+      width: 20px;
+      height: 20px;
+      background-image: url(../assets/img/menu/about.svg);
+    }
+    .menu-record::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 17;
+      width: 20px;
+      height: 20px;
+      background-image: url(../assets/img/menu/record.svg);
+    }
+    .menu-exit::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 17;
+      width: 20px;
+      height: 20px;
+      background-image: url(../assets/img/menu/exit.svg);
+    }
+  }
+}

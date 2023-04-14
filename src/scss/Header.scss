@@ -1,0 +1,12 @@
+.header {
+    background-color: #242731;
+  &__hello {
+    min-height: 78px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    &-text {
+      padding-right: 42px;
+    }
+  }
+}
