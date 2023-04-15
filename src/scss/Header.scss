@@ -1,12 +1,19 @@
 .header {
-    background-color: #242731;
-  &__hello {
+  background-color: #242731;
+  &__hello,
+  &__login {
     min-height: 78px;
     display: flex;
     justify-content: end;
     align-items: center;
     &-text {
       padding-right: 42px;
+    }
+  }
+  &__login-text {
+    transition: color 0.3s ease-in;
+    &:hover {
+      color: #2284bb;
     }
   }
 }
