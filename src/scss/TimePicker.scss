@@ -1,0 +1,76 @@
+.time-picker{
+    width: 100%;
+    height: 40px;
+    background-color: #242731;
+    border: 2px solid #2284BB;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 16px;
+    padding-left: 15px;
+    position: relative;
+    span{
+        display: block;
+    }
+    &__inner{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    &__points{
+        padding: 0px 3px;
+    }
+    .time-picker__btn{
+        margin: 0px 15px 0px auto;
+        width: 20px;
+        height: 20px;
+        position: relative;
+        background: transparent;
+        border: none;
+        &:before{
+            content: '';
+            position: absolute;
+            cursor: pointer;
+            top: 0px;
+            left: 7px;
+            width: 20px;
+            height: 20px;
+            background-image: url(../assets/img/record/icon_time.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+    }
+    .dropdown{
+        display: none;
+        position: absolute;
+        width: 100px;
+        max-height: 200px;
+        overflow-y: scroll;
+        border-radius: 5px;
+        border: 1px solid #fff;
+        top: 45px;
+        left: 0;
+        background-color: #242731;
+        &__list{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        &__point-hour{
+            text-align: center;
+            width: 100%;
+            font-size: 16px;
+            color: #fff;
+            padding: 10px;
+            transition: background-color 0.3s ease-in;
+            &:hover{
+                background-color: #2284BB;
+                cursor: pointer;
+            }
+        }
+    }
+    .dropdown_active{
+        display: block;
+    }
+}

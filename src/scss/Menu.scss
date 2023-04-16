@@ -37,6 +37,11 @@
         color: #ffffff;
       }
     }
+    .active {
+      cursor: pointer;
+      background-color: #292e3d;
+      color: #ffffff;
+    }
     .menu-main::before {
       content: "";
       position: absolute;

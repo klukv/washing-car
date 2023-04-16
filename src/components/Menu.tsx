@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import "../scss/Menu.scss";
@@ -12,10 +12,40 @@ import {
   stocksPage,
 } from "../utils/const";
 import { logout } from "../redux/slices/userSlice";
+//---------------------------------------------------------------------
+const menuLinks = [
+  {
+    id: 1,
+    nameLink: "Главная",
+    classNameLink: "menu__list-link menu-main",
+    path: homePage,
+  },
+  {
+    id: 2,
+    nameLink: "Акции",
+    classNameLink: "menu__list-link menu-stocks",
+    path: stocksPage,
+  },
+  {
+    id: 3,
+    nameLink: "Каталог",
+    classNameLink: "menu__list-link menu-about",
+    path: catalogPage,
+  },
+  {
+    id: 4,
+    nameLink: "Запись",
+    classNameLink: "menu__list-link menu-record",
+    path: recordPage,
+  },
+];
+
 
 const Menu: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const location = useLocation();
+
   const logoutAcc = async () => {
     await dispatch(logout());
     navigate(loginPage);
@@ -29,28 +59,25 @@ const Menu: React.FC = () => {
           <img src={logo} alt="logo" />
         </div>
         <ul className="menu__list">
+          {menuLinks.map((menuLink) => (
+            <li key={menuLink.id.toString()} className="menu__list-point">
+              <Link
+                key={menuLink.id}
+                to={menuLink.path}
+                className={
+                    location.pathname === menuLink.path
+                    ? menuLink.classNameLink.concat(" active")
+                    : menuLink.classNameLink
+                }
+              >
+                {menuLink.nameLink}
+              </Link>
+            </li>
+          ))}
           <li className="menu__list-point">
-            <Link to={homePage} className="menu__list-link menu-main">
-              Главная
-            </Link>
-          </li>
-          <li className="menu__list-point">
-            <Link to={stocksPage} className="menu__list-link menu-stocks">
-              Акции
-            </Link>
-          </li>
-          <li className="menu__list-point">
-            <Link to={catalogPage} className="menu__list-link menu-about">
-              Каталог
-            </Link>
-          </li>
-          <li className="menu__list-point">
-            <Link to={recordPage} className="menu__list-link menu-record">
-              Запись
-            </Link>
-          </li>
-          <li className="menu__list-point">
-            <span className="menu__list-link menu-exit" onClick={logoutAcc}>Выход</span>
+            <span className="menu__list-link menu-exit" onClick={logoutAcc}>
+              Выход
+            </span>
           </li>
         </ul>
       </div>

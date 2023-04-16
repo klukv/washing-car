@@ -5,7 +5,6 @@ import { Catalog, Home, Record, Signin, Signup, Stocks } from "./pages";
 import {
   catalogPage,
   homePage,
-  loginPage,
   recordPage,
   registrationPage,
   stocksPage,
@@ -31,7 +30,7 @@ const App: React.FC = () => {
           </>
         ) : (
           <>
-            <Route path={loginPage} element={<Signin />} />
+            <Route path="*" element={<Signin />} />
             <Route path={registrationPage} element={<Signup />} />
           </>
         )}
