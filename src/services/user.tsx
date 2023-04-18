@@ -7,7 +7,7 @@ export const signupRequest = async (
   roles: string[],
   password: string
 ) => {
-  const { data } = await $host.post(API_URL + API_URL_REGISTER, {
+  const { data } = await $host.post(API_URL_REGISTER, {
     username,
     numberMobile,
     roles,
@@ -17,10 +17,10 @@ export const signupRequest = async (
 };
 
 export const signinRequest = async (username: string, password: string) => {
-  const { data } = await $host.post(API_URL + API_URL_LOGIN, {
+  const { data } = await $host.post(API_URL_LOGIN, {
     username,
     password,
   });
-  localStorage.setItem("token", data.token)
+  localStorage.setItem("token", data.token);
   return data;
 };

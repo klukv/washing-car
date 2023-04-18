@@ -1,11 +1,10 @@
 .catalog {
   padding: 80px 0px;
-  margin-left: 250px;
-  &__grid {
-    display: grid;
-    grid-template-columns: 350px 200px 270px 1fr;
-    grid-template-rows: repeat(8, 100px);
+  &__inner {
     text-align: center;
+  }
+  &__first-row {
+    display: flex;
   }
   .up__row {
     background-color: #2284bb;
@@ -14,15 +13,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
- 
-  .catalog__title {
     padding: 21px 0px;
+  }
+
+  &__title {
+    flex: 0 0 350px;
+  }
+  .service__title{
+    white-space: nowrap;
   }
   .price__title {
-    padding: 21px 0px;
+    flex: 0 0 250px;
   }
-  .grid-item {
+  .time__title{
+    flex: 0 0 475px;
+    padding-right: 200px;
+  }
+  &__row-table{
+    display: flex;
+  }
+  &__cell-service{
+    flex: 0 0 350px;
+  }
+  .flex-item {
     padding: 10px;
     border: 1px solid #ffffff;
     display: flex;
@@ -30,8 +43,9 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    min-height: 100px;
   }
-  .first-cell{
+  .first-cell {
     border-top: none;
   }
   &__cell-title {
@@ -42,12 +56,21 @@
   &__cell-description {
     font-style: italic;
   }
+  &__cell-price{
+    flex: 0 0 250px;
+  }
+  &__cell-time{
+    flex: 0 0 275px;
+  }
   &__cell-price,
   &__cell-time {
     font-size: 26px;
     font-weight: 500;
   }
-  &__btn{
+  &__cell-btn{
+    flex: 0 0 200px;
+  }
+  &__btn {
     border: none;
     background-color: #2284bb;
     color: #000;
@@ -56,8 +79,8 @@
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease-in;
-    &:hover{
-        background-color: #26A5EC;
+    &:hover {
+      background-color: #26a5ec;
     }
   }
 }

@@ -1,4 +1,5 @@
-import userSlice from "./slices/userSlice"
+import userSlice from "./slices/userSlice";
+import serviceSlice from "./slices/serviceSlice";
 import {
   configureStore,
   combineReducers,
@@ -18,7 +19,8 @@ import {
 import storage from "reduxjs-toolkit-persist/lib/storage";
 
 const appReducer = combineReducers({
-  userSlice
+  userSlice,
+  serviceSlice,
 });
 
 const rootReducer: Reducer = (state: RootState, action: AnyAction) => {

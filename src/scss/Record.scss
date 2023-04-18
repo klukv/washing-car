@@ -1,5 +1,8 @@
 .record {
   margin-top: 80px;
+  &__title {
+    margin-bottom: 24px;
+  }
   &__inner {
     display: flex;
     justify-content: space-between;
@@ -7,6 +10,8 @@
   &__calendar {
     width: 720px;
     height: 650px;
+    border-radius: 5px;
+    overflow: hidden;
   }
   &__date-inner {
     height: 100%;
@@ -27,6 +32,22 @@
         border: 2px solid #2284bb;
       }
     }
+    &-btn {
+      margin-top: 16px;
+      background-color: #006edc;
+      border: none;
+      width: 100%;
+      border-radius: 25px;
+      font-size: 18px;
+      padding: 7px 0px;
+      color: #000;
+      transition: all 0.2s ease-in;
+      &:hover {
+        background-color: #1087ff;
+        color: #fff;
+        cursor: pointer;
+      }
+    }
   }
 }
 
@@ -36,6 +57,7 @@
   background: #242731;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.125em;
+  border-radius: 5px;
 }
 
 .react-calendar--doubleView {
