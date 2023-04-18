@@ -1,8 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Routes, Route } from "react-router-dom";
-import { Catalog, Home, Record, Signin, Signup, Stocks } from "./pages";
+import { Admin, Catalog, Home, Record, Signin, Signup, Stocks } from "./pages";
+import { Header, Menu } from "./components";
+import { selectIsAuth, selectRoleUser } from "./redux/selectors";
 import {
+  adminPage,
   catalogPage,
   homePage,
   recordPage,
@@ -11,11 +14,11 @@ import {
 } from "./utils/const";
 
 import "./scss/App.scss";
-import { Header, Menu } from "./components";
-import { selectIsAuth } from "./redux/selectors";
 
 const App: React.FC = () => {
   const isAuth = useSelector(selectIsAuth);
+  const userRole = useSelector(selectRoleUser);
+  const isAdmin = userRole.includes("ROLE_ADMIN");
   return (
     <div className="wrapper">
       <Header />
@@ -27,6 +30,7 @@ const App: React.FC = () => {
             <Route path={recordPage} element={<Record />} />
             <Route path={catalogPage} element={<Catalog />} />
             <Route path={stocksPage} element={<Stocks />} />
+            {isAdmin && <Route path={adminPage} element={<Admin />} />}
           </>
         ) : (
           <>

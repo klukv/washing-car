@@ -16,4 +16,12 @@
       color: #2284bb;
     }
   }
+  .admin__link{
+    color: #2284bb;
+    transition: color 0.2s ease-in;
+    margin-right: 15px;
+    &:hover{
+      color: #26a5ec;
+    }
+  }
 }

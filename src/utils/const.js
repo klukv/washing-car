@@ -2,6 +2,7 @@ export const homePage = "/";
 export const stocksPage = "/stocks";
 export const recordPage = "/record";
 export const catalogPage = "/catalog";
+export const adminPage = "/admin";
 
 export const loginPage = "/signin";
 export const registrationPage = "/signup";
@@ -11,6 +12,7 @@ export const API_URL_LOGIN = "api/auth/signin";
 export const API_URL_REGISTER = "api/auth/signup";
 export const API_URL_RECORD_DATE = "recordsTime";
 export const API_URL_POST_RECORD = "records";
+export const API_URL_GET_ALLRECORDS = "recordsAll";
 
 export const initialMessageData = {
   message: "",

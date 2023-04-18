@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { recordPage } from "../utils/const";
 
 import "../scss/Stocks.scss";
 import stocks_image from "../assets/img/stocks/stocks.jpg";
@@ -16,7 +18,9 @@ const Stocks: React.FC = () => {
               Бесплатное ТО в Грязи.нет Успейте записаться на бесплатное
               техническое обслуживание в Грязи.нет
             </p>
-            <button className="stocks__card-btn">Записаться</button>
+            <Link to={recordPage} className="stocks__card-btn">
+              Записаться
+            </Link>
           </div>
         </div>
       </div>
