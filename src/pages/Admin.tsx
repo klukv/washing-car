@@ -1,18 +1,51 @@
 import React from "react";
-import { getAllRecords } from "../services/main";
+import { deleteRecord, getAllRecords } from "../services/main";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAllRecords } from "../redux/selectors";
 import { setAllServices } from "../redux/slices/serviceSlice";
+import { initialMessageData } from "../utils/const";
+import { TMessageData } from "../utils/types";
 
+import close_btn from "../assets/img/admin/close__error.svg";
 import "../scss/Admin.scss";
 
 const Admin: React.FC = () => {
   const dispatch = useDispatch();
+  const [dataMessage, setDataMessage] =
+    React.useState<TMessageData>(initialMessageData);
+  const [isChangeRecords, setChangeRecords] = React.useState<boolean>(true);
   const allRecords = useSelector(selectAllRecords);
 
+  const closeMessage = () => {
+    setDataMessage((prevState) => {
+      return {
+        ...prevState,
+        message: "",
+        isError: false,
+      };
+    });
+  };
+
+  const deleteSelectRecord = (id: number) => {
+    deleteRecord(id)
+      .then((data) => setChangeRecords(true))
+      .catch((error) =>
+        setDataMessage((prevState) => {
+          return {
+            ...prevState,
+            message: error.message,
+            isError: true,
+          };
+        })
+      );
+  };
+
   React.useEffect(() => {
-    getAllRecords().then((data) => dispatch(setAllServices(data)));
-  }, [allRecords, dispatch]);
+    if (isChangeRecords) {
+      getAllRecords().then((data) => dispatch(setAllServices(data)));
+      setChangeRecords(false);
+    }
+  }, [isChangeRecords, dispatch]);
 
   return (
     <main className="admin">
@@ -31,7 +64,9 @@ const Admin: React.FC = () => {
               <div key={`${record.id}_empty_div`} className="admin__row-table">
                 <div className="user__cell flex-item first-cell">
                   <div className="user__name">{record.userDto.username}</div>
-                  <div className="user__tel">Тел: {record.userDto.numberMobile}</div>
+                  <div className="user__tel">
+                    Тел: {record.userDto.numberMobile}
+                  </div>
                 </div>
                 <div
                   key={`${record.id}_service`}
@@ -45,15 +80,37 @@ const Admin: React.FC = () => {
                 >
                   {record.startTime} - {record.endTime} ч.
                 </div>
-                <div className="admin__cell-date flex-item first-cell">{record.date}</div>
+                <div className="admin__cell-date flex-item first-cell">
+                  {record.date}
+                </div>
                 <div
                   key={`${record.id}_button`}
                   className="admin__cell-btn flex-item first-cell"
                 >
-                  <button className="admin__btn">Удалить</button>
+                  <button
+                    className="admin__btn"
+                    onClick={() => deleteSelectRecord(record.id)}
+                  >
+                    Удалить
+                  </button>
                 </div>
               </div>
             ))}
+          {dataMessage.isError && (
+            <div className="error__message">
+              <div className="error__message__inner">
+                <div className="error__message-header">
+                  <h2 className="error__message-title">Ошибка</h2>
+                  <span className="error__message-close" onClick={closeMessage}>
+                    <img src={close_btn} alt="close" />
+                  </span>
+                </div>
+                <div className="error__message-content">
+                  {dataMessage.message}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </main>

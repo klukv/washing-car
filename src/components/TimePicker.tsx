@@ -17,7 +17,8 @@ const TimePicker: React.FC<ITimePicker> = ({ time, date }) => {
   const userID = useSelector(selectUserID);
   const [activeDropdown, setActiveDropdown] = React.useState<boolean>(false);
   const [selectHour, setSelectHour] = React.useState<string>("08");
-  const [dataMessage, setDataMessage] = React.useState<TMessageData>(initialMessageData);
+  const [dataMessage, setDataMessage] =
+    React.useState<TMessageData>(initialMessageData);
   const endTime = Number(selectHour) + Number(service.duration);
 
   const handleActive = () => {
@@ -54,6 +55,9 @@ const TimePicker: React.FC<ITimePicker> = ({ time, date }) => {
           };
         })
       );
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
   };
 
   return (

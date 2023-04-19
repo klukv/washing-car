@@ -13,6 +13,7 @@ export const API_URL_REGISTER = "api/auth/signup";
 export const API_URL_RECORD_DATE = "recordsTime";
 export const API_URL_POST_RECORD = "records";
 export const API_URL_GET_ALLRECORDS = "recordsAll";
+export const API_URL_DELETE_RECORD = "deleteRecords";
 
 export const initialMessageData = {
   message: "",

@@ -1,11 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { recordPage } from "../utils/const";
 
 import "../scss/Stocks.scss";
 import stocks_image from "../assets/img/stocks/stocks.jpg";
+import { useDispatch } from "react-redux";
+import { setService } from "../redux/slices/serviceSlice";
+import { useNavigate } from "react-router-dom";
 
 const Stocks: React.FC = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const stock = {
+    id: 0,
+    nameService: "Бесплатное техническое обслуживание",
+    duration: "1",
+    price: "0"
+  }
+
+  const addStockRecord = () => {
+    dispatch(setService(stock));
+    navigate(recordPage);
+  }
+
   return (
     <main className="stocks">
       <div className="container">
@@ -18,9 +34,9 @@ const Stocks: React.FC = () => {
               Бесплатное ТО в Грязи.нет Успейте записаться на бесплатное
               техническое обслуживание в Грязи.нет
             </p>
-            <Link to={recordPage} className="stocks__card-btn">
+            <button className="stocks__card-btn" onClick={addStockRecord}>
               Записаться
-            </Link>
+            </button>
           </div>
         </div>
       </div>

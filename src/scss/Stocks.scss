@@ -33,6 +33,10 @@
         padding: 4px 22px;
         border-radius: 25px;
         border: none;
+        transition: background-color 0.3s ease-in;
+        &:hover{
+          background-color: #1f1f1f;
+        }
     }
   }
 }
