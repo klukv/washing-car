@@ -3,6 +3,16 @@
   &__title {
     margin-bottom: 24px;
   }
+  &__title-link{
+    display: block;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    transition: color 0.3s ease-in;
+    &:hover{
+      color: #1087ff;
+    }
+  }
   &__inner {
     display: flex;
     justify-content: space-between;
